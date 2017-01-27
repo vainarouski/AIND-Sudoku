@@ -6,8 +6,8 @@ Q: How do we use constraint propagation to solve the naked twins problem?
 A:  
 1. Find all instances of naked twins. Search for a duplicated two-digit items in every unit.  
 2. Eliminate the naked twins as possibilities for their peers. For every found naked twins identify units where both 
-twins used as an items. Check all peers for identified units, except naked twins, for a naked twins value, and if 
-peer include value remove it.  
+twins used as items. Check all peers for identified units, except naked twins, for a naked twins value, and if 
+peer includes value then remove it.  
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
