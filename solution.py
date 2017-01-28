@@ -7,19 +7,11 @@ cols = '123456789'
 def cross(a, b):
     return [s + t for s in a for t in b]
 
-
-def get_diagonal(rows, cols):
-    diagonal = []
-    for i in range(0, 9):
-        diagonal.append(rows[i] + cols[i])
-    return diagonal
-
-
 boxes = cross(rows, cols)
 row_units = [cross(r, cols) for r in rows]
 column_units = [cross(rows, c) for c in cols]
 square_units = [cross(rs, cs) for rs in ('ABC', 'DEF', 'GHI') for cs in ('123', '456', '789')]
-diagonal_units = [get_diagonal(rows, cols), get_diagonal(rows, cols[::-1])]
+diagonal_units = [[a+b for a, b in zip(rows, cols)], [a+b for a, b in zip(rows, cols[::-1])]]
 unitlist = row_units + column_units + square_units + diagonal_units
 units = dict((s, [u for u in unitlist if s in u]) for s in boxes)
 peers = dict((s, set(sum(units[s], [])) - set([s])) for s in boxes)
